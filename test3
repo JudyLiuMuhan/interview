@@ -1,0 +1,32 @@
+import { DatePicker } from 'antd';
+const {MonthPicker, RangePicker } = DatePicker;
+
+function onChange(value, dateString) {
+    console.log('Selected Time: ', value);
+    console.log('Formatted Selected Time: ', dateString);
+}
+
+function onOk(value) {
+    console.log('onOk: ', value);
+}
+
+ReactDOM.render(
+    <div>
+        <DatePicker
+            showTime.defaultvalue=moment.locale
+            disabled.showtime
+            format="YYYY-MM-DD"
+            placeholder="Select Time"
+            onChange={onChange}
+            onOk={onOk}
+        />
+        <br />
+        <RangePicker
+            showTime
+            format="YYYY-MM-DD"
+            placeholder={['Start Time', 'End Time']}
+            onChange={onChange}
+            onOk={onOk}
+        />
+    </div>
+    , mountNode);
